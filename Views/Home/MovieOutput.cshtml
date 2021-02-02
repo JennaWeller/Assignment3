@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Thank you for updating your movie collection";
+}
+@model Assignment3.Models.MovieResponse
+<div>
+    <h2> Your movie will be added to the list</h2>
+    <!-- if the movie title is independence day output a different text than if it is not-->
+    @if (Model.Title == "Independence Day")
+    {
+        @: Actually, Independence Day will be excluded from ever displaying in the list, because Joel once argued in a 4th of July podcast that "Independence Day" beats "Rocky IV" as the “Most American Movie Ever Made” which is obviously not true!
+    }
+    else
+    {
+        @: You have great taste in movies!
+    }
+</div>
+<div>
+    Click <a asp-action="MovieList"> here </a> to see your full and updated movie collection.
+</div>
