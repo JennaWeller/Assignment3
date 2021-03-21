@@ -1,0 +1,51 @@
+﻿@{ ViewData["Title"] = "Edit a Movie";
+}
+@model MovieViewModel;
+<!--functionality for updating/editing the movie on the list -->
+<form asp-action="UpdateMovie" method="post">
+    <div>
+        <input type="hidden" name="ID" value="@Model.ID" />
+    </div>
+    <div>
+        <label asp-for="@Model.MovieResponseModel.Category">Category:</label>
+        <input placeholder="@Model.MovieResponseModel.Category" asp-for="@Model.MovieResponseModel.Category" />
+    </div>
+    <div>
+        <label asp-for="@Model.MovieResponseModel.Title"> Title: </label>
+        <input placeholder="@Model.MovieResponseModel.Title" asp-for="@Model.MovieResponseModel.Title" />
+    </div>
+    <div>
+        <label asp-for="@Model.MovieResponseModel.Year">  Year:</label>
+        <input placeholder="@Model.MovieResponseModel.Year" asp-for="@Model.MovieResponseModel.Year" />
+    </div>
+    <div>
+        <label asp-for="@Model.MovieResponseModel.Director">Director:</label>
+        <input placeholder="@Model.MovieResponseModel.Director" asp-for="@Model.MovieResponseModel.Director" />
+
+    </div>
+    <div>
+        <label asp-for="@Model.MovieResponseModel.Rating">Rating:</label>
+        <select placeholder="@Model.MovieResponseModel.Rating" asp-for="@Model.MovieResponseModel.Rating">
+            <option value="">Select One </option>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+    </div>
+    <div>
+        <label asp-for="@Model.MovieResponseModel.Edited"> Yes</label>
+        <input asp-for="@Model.MovieResponseModel.Edited" type="radio" value="true" />
+        <label asp-for="@Model.MovieResponseModel.Edited"> No</label>
+        <input asp-for="@Model.MovieResponseModel.Edited" type="radio" value="false" />
+    </div>
+    <div>
+        <label asp-for="@Model.MovieResponseModel.Lent"> Lent To:</label>
+        <input placeholder="@Model.MovieResponseModel.Lent" asp-for="@Model.MovieResponseModel.Lent" />
+    </div>
+    <div>
+        <label asp-for="@Model.MovieResponseModel.Notes"> Notes:</label>
+        <input placeholder="@Model.MovieResponseModel.Notes" asp-for="@Model.MovieResponseModel.Notes" />
+    </div>
+    <button class="btn btn-primary" type="submit"> Submit</button>
+</form> 

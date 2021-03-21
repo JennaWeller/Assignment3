@@ -5,16 +5,17 @@
     ViewBag.Title = "Movie Collection";
     ViewBag.Header = "Movie Collection";
 }
-@model IEnumerable<Assignment3.Models.MovieResponse>
+@model IEnumerable<MovieResponse>
 <!--table for the form values, listing out the movie collection-->
 <div class="right_result">
     <h2> Here are the movies currently on your movie list</h2>
     <table id="order_table" class="display">
         <thead>
-            <tr><th><strong> Category</strong> </th><th><strong> Title </strong></th><th><strong> Year</strong> </th><th><strong> Director</strong> </th><th><strong> Rating </strong> </th><th><strong> Edited</strong> </th><th><strong> Lent To </strong></th><th><strong> Notes </strong></th></tr>
+            <tr><th><strong> Category</strong> </th><th><strong> Title </strong></th><th><strong> Year</strong> </th><th><strong> Director</strong> </th><th><strong> Rating </strong> </th><th><strong> Edited</strong> </th><th><strong> Lent To </strong></th><th><strong> Notes </strong></th><th><strong>  </strong></th><th><strong> </strong></th></tr>
         </thead>
         <tbody>
-            @foreach (Assignment3.Models.MovieResponse x in Model)
+
+            @foreach (MovieResponse x in Model)
             {
                 <tr>
                     <!--grabbing the values from the form and outputting them in rows/columns -->
@@ -26,8 +27,32 @@
                     <td> @x.Edited</td>
                     <td> @x.Lent</td>
                     <td> @x.Notes</td>
+                    <td>
+                        <form id="@x.MovieId" asp-action="EditMovie" method="post">
+                            <input type="hidden" value="@x.MovieId" name="id" />
+                            <button type="submit" class="btn btn-primary">
+                                Edit
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form id="@x.MovieId" asp-action="DeleteMovie" method="post">
+                            <input type="hidden" value="@x.MovieId" name="id" />
+                            <button type="submit" class="btn btn-primary">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             }
+            <form asp-action="MovieForm" method="get">
+                <button class="btn btn-primary">
+                    Add a Movie
+                </button>
+            </form>
+
+
+
         </tbody>
     </table>
 </div>

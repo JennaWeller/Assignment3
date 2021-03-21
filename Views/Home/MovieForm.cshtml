@@ -3,7 +3,7 @@
 *@
 @{
     ViewBag.Title = "Movie Collection Form";
-    ViewBag.Header = "Movie Collection Form";
+    ViewBag.Header = "Movie Collection Form. Add your favorite movies here!";
 }
 @model Assignment3.Models.MovieResponse
 <!-- form for movies, asp-for and asp action used instead -->
@@ -36,12 +36,10 @@
         </select>
     </div>
     <div>
-        <label asp-for="Edited"> Edited </label>
-        <select asp-for="Edited">
-            <option value=""> Select One</option>
-            <option value="true"> Yes</option>
-            <option value="false"> No </option>
-        </select>
+        <label asp-for="Edited"> Yes </label>
+        <input asp-for="Edited" type="radio" value="true" />
+        <label asp-for="Edited"> No </label>
+        <input asp-for="Edited" type="radio" value="false" />
     </div>
     <div>
         <label asp-for="Lent"> Lent To:</label>
@@ -51,7 +49,7 @@
         <label asp-for="Notes"> Notes:</label>
         <input asp-for="Notes" />
     </div>
-    <button type="submit"> Input Your Movies</button>
+    <button class="btn-primary" type="submit"> Input Your Movies</button>
     <!--brings in validation error -->
     <div asp-validation-summary="All"></div>
 </form>
